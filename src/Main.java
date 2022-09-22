@@ -13,6 +13,8 @@ public class Main {
         task4();
         System.out.println();
         task5();
+        System.out.println();
+        task6();
     }
 
     private static void swap() {
@@ -51,8 +53,8 @@ public class Main {
         int key = 7;
         int keyCount = 0;
         int separatorCount = 0;
-        for (int i : arr) {
-            if (i == key) {
+        for (int num : arr) {
+            if (num == key) {
                 keyCount++;
                 if (keyCount == 2) {
                     return true;
@@ -66,6 +68,24 @@ public class Main {
             }
         }
         return false;
+    }
+
+    private static boolean twoTwo(int... arr) {
+        int key = 2;
+        int keyCount = 0;
+        boolean havePair = false;
+        for (int num : arr) {
+            if (num == key) {
+                keyCount++;
+                if (keyCount == 2) {
+                    havePair = true;
+                    keyCount = 0;
+                }
+            } else if (keyCount > 0) {
+                return false;
+            }
+        }
+        return havePair && (keyCount == 0);
     }
 
     private static void task1() {
@@ -95,6 +115,12 @@ public class Main {
         System.out.println("has77(1, 7, 7) -> " + has77(1, 7, 7));
         System.out.println("has77(1, 7, 1, 7) -> " + has77(1, 7, 1, 7));
         System.out.println("has77(1, 7, 1, 1, 7) -> " + has77(1, 7, 1, 1, 7));
+    }
+
+    private static void task6() {
+        System.out.println("twoTwo(4, 2, 2, 3) -> " + twoTwo(4, 2, 2, 3));
+        System.out.println("twoTwo(2, 2, 4) -> " + twoTwo(2, 2, 4));
+        System.out.println("twoTwo(2, 2, 4, 2) -> " + twoTwo(2, 2, 4, 2));
     }
 
 
