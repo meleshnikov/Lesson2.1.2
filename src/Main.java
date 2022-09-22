@@ -11,6 +11,8 @@ public class Main {
         task3();
         System.out.println();
         task4();
+        System.out.println();
+        task5();
     }
 
     private static void swap() {
@@ -45,6 +47,27 @@ public class Main {
         return sum;
     }
 
+    private static boolean has77(int... arr) {
+        int key = 7;
+        int keyCount = 0;
+        int separatorCount = 0;
+        for (int i : arr) {
+            if (i == key) {
+                keyCount++;
+                if (keyCount == 2) {
+                    return true;
+                }
+            } else if ((keyCount == 1)) {
+                separatorCount++;
+            }
+            if (separatorCount > 1) {
+                keyCount = 0;
+                separatorCount = 0;
+            }
+        }
+        return false;
+    }
+
     private static void task1() {
         swap();
         swapXOR();
@@ -66,6 +89,12 @@ public class Main {
         System.out.println("teenSum(3, 4) -> " + teenSum(3, 4));
         System.out.println("teenSum(10, 13) -> " + teenSum(10, 13));
         System.out.println("teenSum(13, 2) -> " + teenSum(13, 2));
+    }
+
+    private static void task5() {
+        System.out.println("has77(1, 7, 7) -> " + has77(1, 7, 7));
+        System.out.println("has77(1, 7, 1, 7) -> " + has77(1, 7, 1, 7));
+        System.out.println("has77(1, 7, 1, 1, 7) -> " + has77(1, 7, 1, 1, 7));
     }
 
 
